@@ -33,10 +33,12 @@ class OneDimensionalGrid(object):
                 self.ticks)
 
             ksiGLL = param.ksiGLL[1:]
+            j = 1
             for i in range(param.nGLL, param.nGlob, param.N):
                 self.z[i:i + param.N] = functions.project_inverse(ksiGLL,
-                                                                  i // param.N,
+                                                                  j,
                                                                   self.ticks)
+                j = j + 1
 
             self.z[-1] = self.ticks[-1]
 
